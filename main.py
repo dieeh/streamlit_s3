@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 pg = st.navigation({
     'Páginas':[
         st.Page("page1.py",title='Página 1', icon=':material/home:'),
-        st.Page("page2.py",title='Página 2', icon=':material/star:'),
+        st.Page("page2.py",title='Página 2', icon=':material/star:')
     ]
 }
 )
