@@ -15,4 +15,26 @@ countries = st.multiselect(
     placeholder='Seleccione 2 o más elementos'
 )
 
+fig = go.Figure()
+for country in countries:
+    fig.add_trace(
+        go.Scatter(x=list(df[df['country']==country].year), y=list(df[df['country']==country].fossil_electricity), name=f'Energías no renovables de {country}')
+    )
+    fig.add_trace(
+        go.Scatter(x=list(df[df['country']==country].year), y=list(df[df['country']==country].renewables_electricity), name=f'Energías renovables de {country}')
+    )
 
+fig.update_layout(
+    title_text="Energías tradicionales vs renovables"
+)
+
+fig.update_layout(
+    xaxis=dict(
+        rangeslider=dict(
+            visible=True
+        ),
+        type="date"
+    )
+)
+
+st.plotly_chart(fig)
