@@ -3,19 +3,18 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_csv('owid-energy-data.csv').fillna(0)
-df_countries = df['country'].drop_duplicates()
-df_years = df['year'].drop_duplicates().sort_values(ascending=False)
+
 st.markdown('### Distribución de energía')
 
 countries = st.selectbox(
     'País o agrupación a comparar.',
-    df_countries,
+    df['country'].drop_duplicates(),
     placeholder='Seleccione un elemento'
 )
 
 years = st.selectbox(
     'Año a visualizar.',
-    df_years,
+    df[df['country']==countries]['year'].drop_duplicates().sort_values(ascending=False),
     placeholder='Seleccione un año'
 )
 
