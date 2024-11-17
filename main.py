@@ -1,13 +1,13 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
+st.set_page_config(layout="wide")
+st.logo("temp1.png",size='large', icon_image="temp2.png")
 pg = st.navigation({
     'Comparaciones':[
         st.Page("page1.py",title='E. Tradicionales vs Renovables', icon=':material/home:'),
-        st.Page("page2.py",title='Distribución de energías', icon=':material/star:')
-    ]
-}
+        st.Page("page2.py",title='Tipos de energías renovables', icon=':material/star:'),
+        st.Page("page3.py",title='Distribución de energía', icon=':material/bolt:')
+        ]
+    }
 )
 pg.run()
