@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
-df = pd.read_csv('owid-energy-data.csv')
+df = pd.read_csv('owid-energy-data.csv').fillna(0)
 df_countries = df['country'].drop_duplicates()
 st.markdown('### Energías tradicionales vs renovables')
 
