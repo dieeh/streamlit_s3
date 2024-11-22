@@ -7,7 +7,7 @@ df = df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_e
 
 st.markdown('### Distribución global')
 
-year = st.slider(label="Año a visualizar:", min_value=1960, max_value=2023, value=2023, step=1)
+year = st.slider(label="Año a visualizar:", min_value=df['year'].min(), max_value=df['year'].max(), value=df['year'].max(), step=1)
 
 energy = st.selectbox(
     'Tipo de energía a comparar.',

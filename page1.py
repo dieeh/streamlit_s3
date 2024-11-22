@@ -40,7 +40,7 @@ fig.update_layout(
         rangeslider=dict(
             visible=True
         ),
-        type="linear"
+        type="date"
     ),
     yaxis=dict(
         anchor="x",
