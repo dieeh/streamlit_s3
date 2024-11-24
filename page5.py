@@ -24,7 +24,7 @@ fig = px.choropleth( # grafica el mapa
     locations="iso_code",
     color=energy,
     hover_name="country",
-    animation_frame="year",
+    animation_frame="year", # esto permite la barra de los años y que esté animado
     color_continuous_scale=color
 )
 
