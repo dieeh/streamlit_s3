@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-df = pd.read_csv('owid-energy-data.csv').fillna(0)
-df = df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_elec']].sort_values(by=['year'])
+df=pd.read_csv('owid-energy-data.csv').fillna(0)
+df=df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_elec']].sort_values(by=['year'])
 
 st.markdown('### Distribución global')
 
@@ -27,7 +27,7 @@ if energy=='low_carbon_share_elec':
 else:
     color = px.colors.sequential.Inferno_r
 
-fig = px.choropleth(   
+fig = px.choropleth(
     df,
     locations="iso_code",
     color=energy,
@@ -38,6 +38,6 @@ fig = px.choropleth(
 
 fig.update_geos(projection_type="natural earth")
 #fig.update_geos(projection_type="orthographic")
-fig.update_layout(height=400, margin={"r":0,"t":0,"l":0,"b":0})
+fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
 
 st.plotly_chart(fig)
