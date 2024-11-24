@@ -2,11 +2,11 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
-df = pd.read_csv('owid-energy-data.csv').fillna(0)
-df_countries = df['country'].drop_duplicates()
+df = pd.read_csv('owid-energy-data.csv').fillna(0) # se lee el dataframe y se reemplazan los NaN con ceros
+df_countries = df['country'].drop_duplicates() # se copia la columna de los nombres de paises/agrupaciones y se eliminan los duplicados
 st.markdown('### Tipos de energías renovables')
 
-countries = st.selectbox(
+countries = st.selectbox( #selectbox permite seleccionar solo 1 elemento, a diferencia del multiselect
     'País o agrupación a comparar.',
     df_countries,
     index=None,

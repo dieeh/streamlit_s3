@@ -2,18 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-df=pd.read_csv('owid-energy-data.csv').fillna(0)
+df = pd.read_csv('owid-energy-data.csv').fillna(0) # se lee el dataframe y se reemplazan los NaN con ceros
 df=df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_elec']].sort_values(by=['year'])
 
 st.markdown('### Distribución global')
-
-#year = st.slider(
-#    label="Año a visualizar:",
-#    min_value=df['year'].min(),
-#    max_value=df['year'].max(),
-#    value=df['year'].max(),
-#    step=1
-#)
 
 energy = st.selectbox(
     'Tipo de energía a comparar.',
@@ -22,12 +14,12 @@ energy = st.selectbox(
     placeholder='Seleccione un elemento'
 )
 
-if energy=='low_carbon_share_elec':
+if energy=='low_carbon_share_elec': # cambia los colores del grafico dependiendo de la opcion
     color = px.colors.sequential.Viridis
 else:
     color = px.colors.sequential.Inferno_r
 
-fig = px.choropleth(
+fig = px.choropleth( # grafica el mapa
     df,
     locations="iso_code",
     color=energy,
