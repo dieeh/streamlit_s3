@@ -21,15 +21,15 @@ else:
 
 fig = px.choropleth( # grafica el mapa
     df,
-    locations="iso_code",
-    color=energy,
+    locations="iso_code", # determina los paises mediante el codigo iso
+    color=energy, # el color depende del valor de la energia
     hover_name="country",
     animation_frame="year", # esto permite la barra de los años y que esté animado
-    color_continuous_scale=color
+    color_continuous_scale=color # muestra la escala de color de la derecha
 )
 
-fig.update_geos(projection_type="natural earth")
-#fig.update_geos(projection_type="orthographic")
+fig.update_geos(projection_type="natural earth") # muestra el planeta como un mapa mundi
+#fig.update_geos(projection_type="orthographic") # muestra el planeta como un globo terraqueo
 fig.update_layout(height=600, margin={"r":0,"t":0,"l":0,"b":0})
 
 st.plotly_chart(fig)

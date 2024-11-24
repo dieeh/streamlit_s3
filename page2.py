@@ -48,11 +48,11 @@ fig.add_trace(
         )
 )
 
-fig.update_layout(
+fig.update_layout( # update_layout modifica los ejes y titulos
     title_text="Tipos de energías renovables",
     xaxis=dict(
         range=["1950", "2024"],
-        rangeslider=dict(
+        rangeslider=dict( # rangeslider es el que permite dar zoom en el grafico
             visible=True
         ),
         type="date"
@@ -77,6 +77,7 @@ fig.update_traces(
     hovertemplate=None,
     hoverlabel = dict(namelength = -1)
 )
-fig.update_layout(hovermode="x unified")
+fig.update_layout(hovermode="x unified") 
+# hovermode="x unified" es lo que muestra la linea vertical cuando uno hace hover al grafico
 
 st.plotly_chart(fig)

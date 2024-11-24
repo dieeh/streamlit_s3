@@ -37,7 +37,7 @@ fig.update_layout( # update_layout modifica los ejes y titulos
     title_text="Energías tradicionales vs renovables",
     xaxis=dict(
         range=["1950", "2024"],
-        rangeslider=dict(
+        rangeslider=dict( # rangeslider es el que permite dar zoom en el grafico
             visible=True
         ),
         type="date"
