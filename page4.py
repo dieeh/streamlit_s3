@@ -15,7 +15,7 @@ year = st.slider( # st.slider permite elegir un valor numerico entre 2 topes
     step=1
 )
 
-fig = px.histogram(df[df['year']==year], x='low_carbon_share_elec', marginal="rug") 
+fig = px.histogram(df[df['year']==year], x='low_carbon_share_elec', marginal="rug")
 # se grafica el histograma de frecuencia de porcentajes de uso de energias renovables
 
 fig.update_layout(
