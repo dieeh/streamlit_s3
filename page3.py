@@ -40,6 +40,10 @@ k = df_graph.index.values[0]
 df_graph = df_graph.transpose()
 df_graph['index1'] = ['Biocombustibles', 'Carbón', 'Gas', 'Hídrica', 'Núclear', 'Petróleo', 'Solar', 'Eólica']
 
-fig = px.pie(names=df_graph['index1'],values=df_graph[k], title='Distribución de energía', hole=0.35)
+fig = px.pie(
+    names=df_graph['index1'],
+    values=df_graph[k],
+    title='Distribución de energía',
+    hole=0.35)
 
 st.plotly_chart(fig)

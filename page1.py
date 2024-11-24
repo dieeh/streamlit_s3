@@ -57,7 +57,11 @@ fig.update_layout(
     )
 )
 
-fig.update_traces(mode="lines", hovertemplate=None, hoverlabel = dict(namelength = -1))
+fig.update_traces(
+    mode="lines",
+    hovertemplate=None,
+    hoverlabel = dict(namelength = -1)
+)
 fig.update_layout(hovermode="x unified")
 
 st.plotly_chart(fig)

@@ -3,11 +3,17 @@ import pandas as pd
 import plotly.express as px
 
 df = pd.read_csv('owid-energy-data.csv').fillna(0)
-df = df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_elec']]
+df = df[['country', 'year', 'iso_code', 'low_carbon_share_elec', 'fossil_share_elec']].sort_values(by=['year'])
 
 st.markdown('### Distribución global')
 
-year = st.slider(label="Año a visualizar:", min_value=df['year'].min(), max_value=df['year'].max(), value=df['year'].max(), step=1)
+#year = st.slider(
+#    label="Año a visualizar:",
+#    min_value=df['year'].min(),
+#    max_value=df['year'].max(),
+#    value=df['year'].max(),
+#    step=1
+#)
 
 energy = st.selectbox(
     'Tipo de energía a comparar.',
@@ -21,10 +27,14 @@ if energy=='low_carbon_share_elec':
 else:
     color = px.colors.sequential.Inferno_r
 
-fig = px.choropleth(df[df['year']==year], locations="iso_code",
-                    color=energy, # lifeExp is a column of gapminder
-                    hover_name="country", # column to add to hover information
-                    color_continuous_scale=color)
+fig = px.choropleth(   
+    df,
+    locations="iso_code",
+    color=energy,
+    hover_name="country",
+    animation_frame="year",
+    color_continuous_scale=color
+)
 
 fig.update_geos(projection_type="natural earth")
 #fig.update_geos(projection_type="orthographic")
