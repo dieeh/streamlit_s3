@@ -77,7 +77,7 @@ fig.update_traces(
     hovertemplate=None,
     hoverlabel = dict(namelength = -1)
 )
-fig.update_layout(hovermode="x unified") 
+fig.update_layout(hovermode="x unified")
 # hovermode="x unified" es lo que muestra la linea vertical cuando uno hace hover al grafico
 
 st.plotly_chart(fig)
