@@ -38,7 +38,7 @@ df_graph = df_graph[(df_graph['country']==countries) & (df_graph['year']==years)
 df_graph = df_graph.drop(['country', 'year', 'fossil_electricity', 'renewables_electricity', 'low_carbon_electricity'], axis=1)
 k = df_graph.index.values[0]
 df_graph = df_graph.transpose()
-df_graph['index1']=['Biocombustibles', 'Carbón', 'Gas', 'Hídrica', 'Núclear', 'Petróleo', 'Solar', 'Eólica']
+df_graph['index1']=['Energía por biocombustibles', 'Energía por carbón', 'Energía por gas', 'Energía hídrica', 'Energía nuclear', 'Energía por petróleo', 'Energía solar', 'Energía eólica']
 
 # Se filtra y se eliminan columnas del df, se guarda el index de la busqueda y se transpone
 # para que los valores queden en una columna. Luego se añade una columna con nombres, para el grafico
