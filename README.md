@@ -37,7 +37,6 @@ streamlit_s3/
 ├── owid-energy-codebook.csv   # Descripción de variables del dataset
 ├── dashboard.png              # Imagen utilizada en la interfaz
 ├── requirements.txt           # Dependencias de Python
-└── test.ipynb                 # Notebook de exploración
 ```
 
 ## Ejecución local
